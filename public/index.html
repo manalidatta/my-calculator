@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://cdn.pixabay.com/photo/2017/06/21/07/33/background-2426328_960_720.jpg');
+        }
+
+        h2 {
+            font-family: 'Girassol', 'cursive';
+            font-size: 50px;
+            border: 5px solid black;
+            color: white;
+            background-image: url('https://source.unsplash.com/500x200/?river');
+            background-repeat: no-repeat;
+            width: 400px;
+            text-align: center;
+            margin: 33px auto;
+        }
+
+        div {
+            margin: 50px auto;
+            width: 367px;
+        }
+
+        input[type="button"] {
+            font-family: 'Girassol', 'cursive';
+            font-size: 25px;
+            background-image: url('https://source.unsplash.com/500x200/?river');
+            /*background-color: #fff344;*/
+            color: white;
+            border: 5px solid black;
+            padding: 10px 20px;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            font-family: 'Girassol', 'cursive';
+            font-size: 25px;
+            background-image: url('https://source.unsplash.com/500x200/?river');
+            text-align: right;
+            color: white;
+            /*background-color: #ff9844;*/
+            border: 5px solid black;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Simple Calculator</h2>
+    <div>
+        <table border="1">
+            <tr>
+                <td colspan="3"><input type="text" id="tb" /></td>
+                <td><input type="button" value="C" onclick="erase()" /> </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="show('1')" /> </td>
+                <td><input type="button" value="2" onclick="show('2')" /> </td>
+                <td><input type="button" value="3" onclick="show('3')" /> </td>
+                <td><input type="button" value="+" onclick="show('+')" /> </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="show('4')" /> </td>
+                <td><input type="button" value="5" onclick="show('5')" /> </td>
+                <td><input type="button" value="6" onclick="show('6')" /> </td>
+                <td><input type="button" value="-" onclick="show('-')" /> </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="show('7')" /> </td>
+                <td><input type="button" value="8" onclick="show('8')" /> </td>
+                <td><input type="button" value="9" onclick="show('9')" /> </td>
+                <td><input type="button" value="X" onclick="show('*')" /> </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="/" onclick="show('/')" /> </td>
+                <td><input type="button" value="0" onclick="show('0')" /> </td>
+                <td><input type="button" value="." onclick="show('.')" /> </td>
+                <td><input type="button" value="=" onclick="solve()" /> </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function show(x) {
+            document.getElementById("tb").value = document.getElementById("tb").value + x;
+        }
+        function erase() {
+            document.getElementById("tb").value = "";
+        }
+        function solve() {
+            let y = document.getElementById("tb").value;
+            let z = eval(y);
+            erase();
+            show(z);
+        }
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyC4Td31T9abHoxmhcLRshqrD-cbQKnkrhk",
+            authDomain: "manali-sample.firebaseapp.com",
+            databaseURL: "https://manali-sample.firebaseio.com",
+            projectId: "manali-sample",
+            storageBucket: "manali-sample.appspot.com",
+            messagingSenderId: "688270679941",
+            appId: "1:688270679941:web:305e0c29e1e7fc5b7d6eec",
+            measurementId: "G-5VZBSC1YX2"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+</body>
+
+</html>
